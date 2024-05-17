@@ -1,0 +1,126 @@
+$distruber-gutter-width: 30px !default;
+$distruber-spacing: 80px !default;
+$distruber-content-maxwidth: 600px !default;
+
+.disturber {
+	margin-top: $distruber-spacing;
+	margin-bottom: $distruber-spacing;
+  min-height: 40vh;
+  color: #fff;
+  text-shadow: 0 0 15px rgba(#000, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: responsive 15px 20px;
+  overflow: hidden;
+
+  @supports (clip-path: inset(0 0 0 0)) {
+    clip-path: inset(0 0 0 0);
+  }
+
+  + .disturber {
+    margin-top: -$distruber-spacing;
+  }
+}
+
+.disturber--dark {
+  color: #000;
+  text-shadow: 0 0 15px rgba(#fff, 0.5);
+}
+
+.disturber__background {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+
+  @supports (clip-path: inset(0 0 0 0)) {
+    position: fixed;
+    background-attachment: scroll;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+    background: #000;
+    opacity: 0;
+    z-index: 0;
+
+    .disturber--dark & {
+      background: #fff;
+    }
+  }
+}
+
+@for $i from 1 through 9 {
+  .disturber__background--opacity-#{$i}0::before {
+    opacity: $i * 0.1;
+  }
+}
+
+.disturber__content {
+  max-width: calc(960px + 2em);
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  padding: 4em 2em;
+
+  > div {
+    
+    h2{
+        font-size: 5rem;
+    }
+  }
+}
+
+// Basic demo styling
+
+body {
+	padding: 100vh 0;
+
+	> :first-child {
+		margin-top: -10vh;
+	}
+}
+
+/* My Skills */
+
+.progress {
+    height: 20px;
+      border-radius:20px;
+  
+  }
+  
+  .progress .skill .val {
+    float: right;
+    font-style: normal;
+    margin: 0 20px 0 0;
+  }
+  span {
+    
+      display:block;
+      position: relative;
+      font-size: 13px;
+      font-weight: 600;
+      text-transform:uppercase;
+      color: #888888;
+    line-height: 17px;
+    margin-bottom:5px;
+  }
+  .progress-bar {
+    text-align: left;
+  
+    border-radius:20px;
+    transition-duration: 3s;
+  }

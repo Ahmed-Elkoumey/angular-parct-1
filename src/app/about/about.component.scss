@@ -1,0 +1,60 @@
+// vars
+$icons-count:4;
+$box-count:4;
+// vars
+
+.hire {
+    padding: 2em;
+    background: #f9bf3f;
+}
+.services{
+    box-shadow: 0px 0px 56px -8px rgba(0, 0, 0, 0.17);
+}
+
+.hex {
+    margin-top: -30px;
+    width: 104px;
+    height: 60px;
+    background-color: #27aae1;
+    border-color: #27aae1;
+    position: relative;
+    display: inline-block;
+  }
+  .hex:before {
+    content: " ";
+    width: 0;
+    height: 0;
+    border-bottom: 30px solid;
+    border-color: inherit;
+    border-left: 52px solid transparent;
+    border-right: 52px solid transparent;
+    position: absolute;
+    top: -30px;
+    left: 0;
+  }
+  .hex:after {
+    content: "";
+    width: 0;
+    position: absolute;
+    bottom: -30px;
+    border-top: 30px solid;
+    border-color: inherit;
+    border-left: 52px solid transparent;
+    border-right: 52px solid transparent;
+    left: 0;
+  }
+  
+  @for $i from 0 through $box-count {
+    .skill-box#{$i} {
+        // background-color: rgb(77, 201, 160);
+        box-shadow: 0px 0px 56px -8px rgba(0, 0, 0, 0.17);
+        position: relative; // Ensure the absolutely positioned pseudo-element is relative to this element
+        border-bottom: 2px solid rgb(random(255), random(255), random(255)); // Apply random color directly to border-bottom
+    }
+}
+  
+@for $i from 0 through $icons-count {
+    .icon#{$i} {
+        color: rgb(random(255), random(255), random(255));
+    }
+}
